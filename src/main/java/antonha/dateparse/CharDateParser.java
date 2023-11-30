@@ -61,7 +61,7 @@ public class CharDateParser {
         //Day: first check if there are days
         if(dateString.length() == 7 || dateString.charAt(7) != '-') {
             return LocalDate.of(year, month, 1);
-        }
+        }   
         int d0 = charToInt(dateString.charAt(8));
         int d1 = charToInt(dateString.charAt(9));
         if(d0 < 0 || d0 > 3 || d1 < 0 || d1 > 9) {
