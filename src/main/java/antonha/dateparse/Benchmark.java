@@ -30,9 +30,9 @@ import java.util.regex.Pattern;
 
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 
-@Warmup(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 1, time = 1, timeUnit = TimeUnit.SECONDS)
-@Fork(value = 1)
+@Warmup(iterations = 3, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 5, time = 2, timeUnit = TimeUnit.SECONDS)
+@Fork(value = 4)
 @State(Scope.Benchmark)
 public class Benchmark {
 
@@ -48,11 +48,6 @@ public class Benchmark {
     @org.openjdk.jmh.annotations.Benchmark()
     public TemporalAccessor benchESParse() {
         return ElasticsearchParsers.doParse(dateString);
-    }
-
-    @org.openjdk.jmh.annotations.Benchmark()
-    public TemporalAccessor benchESStrictParse() {
-        return ElasticsearchParsers.doParseStrict(dateString);
     }
 
 //
@@ -80,5 +75,11 @@ public class Benchmark {
     @org.openjdk.jmh.annotations.Benchmark
     public TemporalAccessor benchRFCParser() {
         return RFC3339Parser.parseDateTime(dateString);
+    }
+
+     //
+    @org.openjdk.jmh.annotations.Benchmark
+    public TemporalAccessor benchFastDateParser() {
+        return FastDateParser.parse(dateString);
     }
 }
