@@ -45,36 +45,36 @@ public class Benchmark {
     public String dateString;
 
 
-//     @org.openjdk.jmh.annotations.Benchmark()
-//     public TemporalAccessor benchESParse() {
-//         return ElasticsearchParsers.doParse(dateString);
-//     }
+    @org.openjdk.jmh.annotations.Benchmark()
+    public TemporalAccessor benchESParse() {
+        return ElasticsearchParsers.doParse(dateString);
+    }
 
-//     @org.openjdk.jmh.annotations.Benchmark()
-//     public TemporalAccessor benchESStrictParse() {
-//         return ElasticsearchParsers.doParseStrict(dateString);
-//     }
+    @org.openjdk.jmh.annotations.Benchmark()
+    public TemporalAccessor benchESStrictParse() {
+        return ElasticsearchParsers.doParseStrict(dateString);
+    }
 
-// //
+//
 
-//     /*
-//     Not complete, here as a reference for roughly how fast Instant.parse() is.
-//      */
-//     @org.openjdk.jmh.annotations.Benchmark
-//     public TemporalAccessor benchInstantParse() {
-//         return Instant.parse(dateString);
-//     }
-// //
-//     @org.openjdk.jmh.annotations.Benchmark
-//     public TemporalAccessor benchCharParser() {
-//         return CharDateParser.parse(dateString);
-//     }
+    /*
+    Not complete, here as a reference for roughly how fast Instant.parse() is.
+     */
+    @org.openjdk.jmh.annotations.Benchmark
+    public TemporalAccessor benchInstantParse() {
+        return Instant.parse(dateString);
+    }
+//
+    @org.openjdk.jmh.annotations.Benchmark
+    public TemporalAccessor benchCharParser() {
+        return CharDateParser.parse(dateString);
+    }
 
-//     //
-//     @org.openjdk.jmh.annotations.Benchmark
-//     public TemporalAccessor benchITUParser() {
-//         return ITU.parseDateTime(dateString);
-//     }
+    //
+    @org.openjdk.jmh.annotations.Benchmark
+    public TemporalAccessor benchITUParser() {
+        return ITU.parseDateTime(dateString);
+    }
 
     //
     @org.openjdk.jmh.annotations.Benchmark
